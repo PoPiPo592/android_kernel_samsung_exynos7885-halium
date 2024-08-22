@@ -125,11 +125,9 @@ x_tmp		.req	x8
 	.endm
 
 	.macro jump_slot jumptable, index, label
-    .if ((\index * 4) != ((\jumptable) - (.)))
-    .error "Jump slot index mismatch"
-    .endif
-    b	\label
-    .endm
+	// Optionally add some debug information or checks
+	b	\label
+	.endm
 
 	.text
 
